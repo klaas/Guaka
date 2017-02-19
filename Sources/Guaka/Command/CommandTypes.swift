@@ -35,7 +35,7 @@ public enum DeprecationStatus {
 
 /// Run block, called when the command is executed
 /// This callback receives the Flags passed to it and the positional arguments
-public typealias Run = (Flags, [String]) -> ()
+public typealias Run = (Command, Flags, [String]) -> ()
 
 
 /// Conditional Run block, called when the command is executed
