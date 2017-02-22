@@ -16,7 +16,7 @@ extension Command {
 				print("Too many arguments.")
 			}
 			
-			print( helpMessage)
+//			print( helpMessage)
 			fail(statusCode: statusCode)
 		}
 	}
@@ -28,7 +28,7 @@ extension Command {
 				print("Too many arguments.")
 			}
 			
-			print( helpMessage)
+//			print( helpMessage)
 			fail(statusCode: statusCode)
 		}
 	}
