@@ -204,6 +204,7 @@ public class Command {
   /// The first word of the usage will be the command name
   ///
   /// ----
+	@discardableResult
   public init(usage: String,
               shortMessage: String? = nil,
               longMessage: String? = nil,
