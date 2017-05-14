@@ -106,18 +106,27 @@ extension HelpGenerator {
   }
 
   public var usageSection: String? {
-    let flagsString = commandHelp.hasFlags ? " [flags]" : ""
-
-    var usageString = [
-      "Usage:",
-      "  \(commandHelp.fullUsage)\(flagsString)"
-    ]
-
-    if commandHelp.hasSubCommands {
-      usageString.append("  \(commandHelp.fullName) [command]")
-    }
-
-    return (usageString + ["\n"]).joined(separator: "\n")
+	if commandHelp.hasSubCommands {
+		var usageString = [
+			"Usage:",
+		]
+		
+		usageString.append("  \(commandHelp.fullName) [command]")
+		return (usageString + ["\n"]).joined(separator: "\n")
+	} else {
+		let flagsString = commandHelp.hasFlags ? " [flags]" : ""
+		
+		var usageString = [
+			"Usage:",
+			"  \(commandHelp.fullUsage)\(flagsString)"
+		]
+		
+		if commandHelp.hasSubCommands {
+			usageString.append("  \(commandHelp.fullName) [command]")
+		}
+		
+		return (usageString + ["\n"]).joined(separator: "\n")
+	}
   }
 
   public var aliasesSection: String? {
@@ -131,12 +140,20 @@ extension HelpGenerator {
   }
 
   public var exampleSection: String? {
+	guard let parentCommand = commandHelp.parentCommand else {
+		return nil
+	}
+	
+	guard !commandHelp.hasSubCommands else {
+		return nil
+	}
+	
     guard let example = commandHelp.example else { return "" }
 
+	let parentName = try! parentCommand.name()
     return [
       "Examples:",
-      example,
-      "\n"
+      "  \(parentName) " + example, "\n"
       ].joined(separator: "\n")
   }
 
@@ -206,7 +223,12 @@ extension HelpGenerator {
   }
 
   public var informationSection: String? {
-    return ["Use \"\(commandHelp.fullName) [command] --help\" for more information about a command."].joined(separator: "\n")
+	if commandHelp.hasSubCommands {
+		return ["Use \"\(commandHelp.fullName) [command] --help\" for more information about a command."].joined(separator: "\n")
+	} else {
+		return nil
+	}
+	
   }
 
   public func deprecationMessage(forDeprecatedFlag flag: FlagHelp) -> String? {

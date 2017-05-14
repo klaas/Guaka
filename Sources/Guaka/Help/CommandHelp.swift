@@ -72,6 +72,11 @@ public struct CommandHelp {
   /// Contains a list of inheritable flags.
   public let globalFlags: [FlagHelp]
 
+	public let parentCommand: Command?
+	public var hasParentCommand: Bool {
+		return parentCommand != nil
+	}
+	
   init(command: Command) {
     name = (try? command.name()) ?? ""
     usage = command.usage
@@ -103,6 +108,8 @@ public struct CommandHelp {
     localFlags = flags.local
     globalFlags = flags.global
     hasFlags = flags.local.count + flags.global.count > 0
+	
+	parentCommand = command.parent
   }
 
   /// Full path `git show origin`
