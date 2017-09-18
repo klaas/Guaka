@@ -120,7 +120,7 @@ public struct Flag: Hashable {
     self.value = value
     self.inheritable = inheritable
     self.description = description
-    self.type = type(of: value)
+    self.type = Swift.type(of: value)
     self.required = true
   }
 

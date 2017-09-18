@@ -163,7 +163,7 @@ extension HelpGenerator {
     }
 
     let availableCommands = commandHelp.subCommands.filter { $0.isDeprecated == false }
-    let sortedCommands = availableCommands.sorted { $0.0.name < $0.1.name }
+    let sortedCommands = availableCommands.sorted { $0.name < $1.name }
 
     let longestCommand = availableCommands.max(by: { $0.name.characters.count < $1.name.characters.count })
     let longestCommandLength = longestCommand?.name.characters.count ?? 0

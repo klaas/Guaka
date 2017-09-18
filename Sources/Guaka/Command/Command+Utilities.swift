@@ -97,7 +97,7 @@ extension Command {
 
     var name = ""
     if let index = usage.find(string: " ") {
-      name = usage[usage.startIndex..<index]
+      name = String(usage[usage.startIndex..<index])
     } else {
       name = usage
     }

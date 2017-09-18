@@ -1,9 +1,15 @@
+// swift-tools-version:4.0
 import PackageDescription
 
 let package = Package(
-  name: "Guaka",
-  targets: [
-    Target(name: "Guaka")
-  ],
-  dependencies: [.Package(url: "https://github.com/oarrabi/StringScanner", majorVersion: 0)]
+	name: "Guaka",
+	products: [
+		.library( name: "Guaka", targets: ["Guaka"]),
+    ],
+    dependencies:[
+    	.package(url: "https://github.com/klaas/StringScanner", from: "0.3.0"),
+	],
+	targets: [
+		.target(name: "Guaka", dependencies: ["StringScanner"]),
+	]
 )
