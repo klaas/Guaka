@@ -91,7 +91,7 @@ extension Command {
   ///    let x = Command.name(forUsage: "run [arguments]")
   ///    x //"run"
   static func name(forUsage usage: String) throws -> String {
-    if usage.characters.count == 0 {
+    if usage.count == 0 {
       throw CommandError.wrongCommandUsageString(usage)
     }
 
@@ -102,10 +102,10 @@ extension Command {
       name = usage
     }
 
-    if name.characters.count == 0 ||
-      name.characters.contains("/") ||
-      name.characters.contains("\\") ||
-      name.characters.first! == "-" {
+    if name.count == 0 ||
+      name.contains("/") ||
+      name.contains("\\") ||
+      name.first! == "-" {
       throw CommandError.wrongCommandUsageString(usage)
     }
     
