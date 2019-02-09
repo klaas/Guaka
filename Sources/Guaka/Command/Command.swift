@@ -174,7 +174,7 @@ public class Command {
 
   /// We can call the command with different aliases
   /// This varialbe hold the alias used
-  var aliasUsedToCallCommand: String?
+  public internal(set) var aliasUsedToCallCommand: String?
 
   /// Initialize a command
   ///
