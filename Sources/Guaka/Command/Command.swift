@@ -12,7 +12,6 @@
   @_exported import Darwin.C
 #endif
 
-
 /// Command class representing a Command that can be executed.
 ///
 /// ----
