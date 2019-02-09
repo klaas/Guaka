@@ -97,7 +97,7 @@ extension Command {
       preRun(flags, arguments) == false
     { return }
 
-    self.run?(flags, arguments)
+    self.run?(self, flags, arguments)
 
     if
       let postRun = postRun,
