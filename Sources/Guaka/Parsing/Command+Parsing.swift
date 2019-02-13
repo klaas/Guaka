@@ -57,7 +57,13 @@ func actualCommand(forCommand command: Command, arguments: [String]) -> (Command
 ///
 /// - returns: the remaining list of arguments
 private func remove(argument: String, fromArguments arguments: [String]) -> [String] {
-  return arguments.filter { $0 != argument }
+	if let firstIndex = arguments.firstIndex(of: argument) {
+		var res = arguments
+		res.remove(at: firstIndex)
+		return res
+	} else {
+		return arguments
+	}
 }
 
 
