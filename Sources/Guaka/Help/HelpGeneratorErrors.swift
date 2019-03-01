@@ -32,7 +32,7 @@ extension HelpGenerator {
     case let .wrongFlagShortName(name):
       return "wrong flag short name used.\nFlag name of '\(name)' is not allowed."
     default:
-      return "General error encountered"
+      return "General error encountered \(error)"
     }
   }
 
