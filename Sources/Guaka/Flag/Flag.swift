@@ -100,7 +100,7 @@ public struct Flag: Hashable {
 
 
   /// Was the flag value set from the arguments
-  var didSet: Bool = false
+  public var didSet: Bool = false
 
 
   /// Creates a new flag
@@ -317,4 +317,17 @@ public struct Flag: Hashable {
 /// Check for flags equality
 public func ==(left: Flag, right: Flag) -> Bool {
   return left.hashValue == right.hashValue
+}
+
+extension Flags {
+	public func getBoolIfExplicitlySet(name:String) -> Bool? {
+		guard let flag = self[name] else {
+			fatalError("getBoolIfSet was called for the boolean Flag \"\(name)\" which has no default value.")
+		}
+		if flag.didSet {
+			let res:Bool = flag.value as! Bool
+			return res
+		}
+		return nil
+	}
 }
