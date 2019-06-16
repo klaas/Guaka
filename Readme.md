@@ -6,7 +6,7 @@
 </p>
 
 [![SwiftPM compatible](https://img.shields.io/badge/SwiftPM-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
-![Swift Version](https://img.shields.io/badge/Swift-4.1-orange.svg)
+![Swift Version](https://img.shields.io/badge/Swift-5.0-orange.svg)
 [![Build Status](https://travis-ci.org/nsomar/Guaka.svg?branch=master)](https://travis-ci.org/nsomar/Guaka)
 [![codecov](https://codecov.io/gh/nsomar/Guaka/branch/master/graph/badge.svg)](https://codecov.io/gh/nsomar/Guaka)
 [![Platform](https://img.shields.io/badge/platform-osx-lightgrey.svg)](https://travis-ci.org/nsomar/Guaka)
@@ -85,7 +85,7 @@ Planned Features:
 - [ ] Generate Markdown documentation
 - [ ] Man pages and bash/zsh/tcsh completions
 - [ ] Generate a command line application from a configuration (Yaml, Taml, Json)file
-- [ ] Carthage and Cocoapod support (maybe?)
+- [ ] Carthage and CocoaPods support (maybe?)
 
 ## Introduction
 

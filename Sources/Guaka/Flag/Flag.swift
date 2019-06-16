@@ -88,9 +88,9 @@ public struct Flag: Hashable {
 
 
   /// Gets the flag hash value.
-	public func hash(into hasher: inout Hasher) {
-		hasher.combine(longName)
-	}
+  public func hash(into hasher: inout Hasher) {
+    hasher.combine(longName)
+  }
 
 
   /// Return if the flag is a boolean or not.
