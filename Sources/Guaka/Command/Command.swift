@@ -391,7 +391,7 @@ public class Command {
     print(string)
   }
 
-  func name() throws -> String {
+  public func name() throws -> String {
     return try Command.name(forUsage: usage)
   }
 }
